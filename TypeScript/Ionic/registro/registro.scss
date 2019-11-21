@@ -1,0 +1,39 @@
+registro {
+
+    .item.item-input,
+    .item {
+      background-color: transparent;
+    }
+    $text-input-highlight-color-valid: color($colors, primary, base);
+    $text-input-highlight-color-invalid: color($colors, primary, base);
+    $text-input-placeholder-color: color($colors, primary, base);
+    .text-input {
+      color: color($colors, secondary, base);
+    }
+    
+    ion-spinner * {
+      stroke: color($colors, secondary, base);
+      fill: color($colors, secondary, base);
+      position: fixed;
+      z-index: 999;
+      height: 5em;
+      width: em;
+      overflow: show;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    
+    ion-spinner svg {
+      stroke: color($colors, secondary, base);
+      fill: color($colors, secondary, base);
+    }
+    ion-content {
+      background-color: color($colors, primary, base);
+    }
+    ion-grid {
+      background-color: color($colors, primary, base);
+    }
+}

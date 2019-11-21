@@ -1,0 +1,52 @@
+<ion-header transparent>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <h1 class="main-header" padding-left>Crear Cuenta</h1>
+  <div *ngIf="loading" padding class="spinnerCenter">
+      <ion-spinner name="crescent" duration="560"></ion-spinner>
+    </div>
+  <ion-list *ngIf="!loading">
+    <form [formGroup]="registerForm">
+      <!-- nombre -->
+      <ion-item>
+        <ion-label stacked>Nombre</ion-label>
+        <ion-input name="nombre" placeholder="Nombre" formControlName="nombre" autocapitalize="off"
+        ></ion-input>
+      </ion-item>
+      <!-- apellido -->
+      <ion-item>
+        <ion-label stacked>Apellido</ion-label>
+        <ion-input name="apellido" placeholder="Apellido" autocapitalize="off" formControlName="apellido"></ion-input>
+      </ion-item>
+      <!-- email -->
+      <ion-item>
+        <ion-label stacked>Correo Electrónico</ion-label>
+        <ion-input formControlName="Email" name="email" type="text" autocapitalize="off" placeholder="Correo Electrónico"
+        ></ion-input>
+      </ion-item>
+      <!-- contraseña -->
+      <ion-item>
+        <ion-label stacked>Contraseña *</ion-label>
+        <ion-input formControlName="Password" name="password" type="password" placeholder="Abcd.123"
+        ></ion-input>
+      </ion-item>
+      <!-- contraseña -->
+      <ion-item>
+        <ion-label stacked>Confirmar Contraseña *</ion-label>
+        <ion-input formControlName="ConfirmPassword" name="password" type="password" placeholder="Abcd.123"
+        ></ion-input>
+      </ion-item>
+      <!-- botones -->
+      <ion-item>
+        <p text-wrap>* Usa 8 o más caracteres con una combinación de letras mayúsculas, minúsculas y números</p>
+        <button ion-button (click)="register()" type="button" block round large [disabled]="!registerForm.valid" color="secondary">
+          Registrarme
+        </button>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>

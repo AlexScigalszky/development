@@ -1,0 +1,32 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <img src="./assets/imgs/logo.png" alt="logo" class="logo-login"/>
+
+  <div *ngIf="loading" padding class="spinnerCenter">
+    <ion-spinner name="crescent" duration="560"></ion-spinner>
+  </div>
+  <ion-card *ngIf="!loading">
+    <ion-card-content>
+      <form>
+        <ion-list>
+          <!-- email -->
+          <ion-item>
+            <ion-label stacked>Correo Electrónico</ion-label>
+            <ion-input [(ngModel)]="user.email" name="email" type="email" autocapitalize="off"></ion-input>
+          </ion-item>
+          <!-- contraseña -->
+          <ion-item>
+            <ion-label stacked>Contraseña</ion-label>
+            <ion-input [(ngModel)]="user.password" name="password" type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button ion-button (click)="login()" type="button" color="dark" block large round margin-top>Iniciar Sesión</button>
+
+        <button ion-button (click)="register()" type="button" id="register" color="grisoscuro" block round margin-top>Crear Cuenta</button>
+        <button ion-button (click)="recuperarPassword()" type="button" id="forgor-password" color="dark" block outline clear>Recuperar Contraseña</button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

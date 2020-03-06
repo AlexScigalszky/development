@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>266</x>
+      <y>413</y>
+      <w>280</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>GenericRepository&lt;DTOEntity, TEntity&gt; : 
+IGenericRepository&lt;DTOEntity, TEntity&gt; where TEntity : class
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>504</y>
+      <w>322</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>UserTypeRepository : 
+GenericRepository&lt;UserTypeDTO, UserType&gt;, IUserTypeRepository</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>497</y>
+      <w>350</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>UserTokenRepository : 
+GenericRepository&lt;UserTokenDTO, UserToken&gt;, IUserTokenRepository</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>560</y>
+      <w>273</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>UserRepository : 
+GenericRepository&lt;UserDTO, User&gt;, IUserRepository</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>441</y>
+      <w>21</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>441</y>
+      <w>252</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;340.0;50.0;340.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>441</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>310.0;10.0;310.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>469</x>
+      <y>133</y>
+      <w>294</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>/IGenericRepository&lt;DTOEntity, TEntity&gt; where TEntity : class/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>476</x>
+      <y>273</y>
+      <w>273</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>/IUserRepository : /
+/IGenericRepository&lt;UserDTO, User&gt;/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>154</y>
+      <w>21</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>154</y>
+      <w>252</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;340.0;50.0;340.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>154</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>310.0;10.0;310.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>658</x>
+      <y>210</y>
+      <w>350</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>/IUserTokenRepository : /
+/IGenericRepository&lt;UserTokenDTO, UserToken&gt;/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>217</y>
+      <w>322</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>/IUserTypeRepository : /
+/IGenericRepository&lt;UserTypeDTO, UserType&gt;/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>154</y>
+      <w>196</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=gray
+</panel_attributes>
+    <additional_attributes>260.0;10.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>245</y>
+      <w>224</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=gray
+</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>301</y>
+      <w>224</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=gray
+</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>245</y>
+      <w>224</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=gray
+</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>154</y>
+      <w>567</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+fg=#147431</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;790.0;50.0;790.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>441</y>
+      <w>567</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+fg=#147431</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;790.0;50.0;790.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>217</y>
+      <w>77</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lw=2
+/HotSpot/
+fg=#147431</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>504</y>
+      <w>77</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lw=2
+HotSpot
+fg=#147431</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

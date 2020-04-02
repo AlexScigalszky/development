@@ -1,32 +1,39 @@
-﻿using iText.Forms;
-using iText.Kernel.Pdf;
+﻿using iTextSharp.text.pdf;
 using System.Collections.Generic;
 using System.IO;
 
 namespace Example.Impl
 {
-    public class PdfCreator: IPdfCreator
+    public class PdfCreator : IPdfCreator
     {
-        public byte[] FromValues(string pdfTemplate, IDictionary<string, string> values) 
+        public Stream FromValues(string pdfTemplate, IDictionary<string, string> values)
         {
-            PdfReader pdfReader = new PdfReader(pdfTemplate);
-            MemoryStream newFile = new MemoryStream();
-            PdfWriter writer = new PdfWriter(newFile);
+            var pdfStream = new FileStream(path: pdfTemplate, mode: FileMode.Open);
+            var outStream = new MemoryStream();
 
-            using (PdfDocument ps = new PdfDocument(pdfReader, writer))
+            PdfReader pdfReader = null;
+            PdfStamper pdfStamper = null;
+
+            try
             {
-                PdfAcroForm pdfAcroForm  = PdfAcroForm.GetAcroForm(ps, false);
-                
+                pdfReader = new PdfReader(pdfStream);
+                pdfStamper = new PdfStamper(pdfReader, outStream);
+                AcroFields form = pdfStamper.AcroFields;
+
                 foreach (string f in values.Keys)
                 {
-                    pdfAcroForm.GetField(f).SetValue(values[f]);
+                    form.SetField(f, values[f]);
                 }
 
-                pdfAcroForm.FlattenFields();
-                ps.Close();
+                // set this if you want the result PDF to not be editable. 
+                pdfStamper.FormFlattening = true;
+                return outStream;
             }
-
-            return newFile.ToArray();
+            finally
+            {
+                pdfStamper?.Close();
+                pdfReader?.Close();
+            }
         }
     }
 }

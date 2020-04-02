@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using EDAviation.Shared;
+using Exmplae.Shared;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace EDAviation.API.Filters
+namespace Exmplae.Filters
 {
     public class HeaderFilter : IOperationFilter
     {

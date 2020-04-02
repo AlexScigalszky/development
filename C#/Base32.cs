@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace TatuelAPI.Utilities
+namespace Example.Utilities
 {
 
     public static class Base32

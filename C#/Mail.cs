@@ -8,7 +8,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 
-namespace TatuelAPI.Utilities
+namespace Example.Utilities
 {
     public class Mailer
     {

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace TatuelAPI.Utilities
+namespace Example.Utilities
 {
     public class Serializer
     {

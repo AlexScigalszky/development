@@ -7,19 +7,18 @@ using System.Linq.Expressions;
 
 namespace Example.Model.Repositories
 {
-    public abstract class GenericRepository<DTOEntity, TEntity> : IGenericRepository<DTOEntity, TEntity> where TEntity : class
+    public abstract class GenericRepository<DTOEntity, TEntity> : IGenericRepository<DTOEntity, TEntity> where DTOEntity : BaseDTO where TEntity : BaseModel
     {
 
-        readonly Context _context;
-        readonly DbSet<TEntity> _dbSet;
+        protected readonly Context context;
+        protected readonly IMapper mapper;
+        protected readonly DbSet<TEntity> dbSet;
 
-        public Context Context => _context;
-        public DbSet<TEntity> dbSet => _dbSet;
-
-        public GenericRepository(Context context)
+        public GenericRepository(Context context, IMapper mapper)
         {
-            _context = context;
-            _dbSet = context.Set<TEntity>();
+            this.context = context;
+            this.mapper = mapper;
+            this.dbSet = context.Set<TEntity>();
         }
 
         /// <summary>
@@ -42,7 +41,7 @@ namespace Example.Model.Repositories
             IQueryable<TEntity> query = dbSet;
 
             if (AsNoTracking)
-                query = query.AsNoTracking();
+            query = query.AsNoTracking();
 
             if (filter != null)
             {
@@ -103,19 +102,34 @@ namespace Example.Model.Repositories
             return GetDTOFromEntity(dbSet.Find(id));
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
-            return dbSet.ToList();
+            return dbSet.AsQueryable();
         }
 
-        public IEnumerable<DTOEntity> GetAllDTO()
+        public IQueryable<DTOEntity> GetAllDTO()
         {
-            return GetAll().ToArray().Select(x => GetDTOFromEntity(x));
+            return GetAll().ToArray().Select(x => GetDTOFromEntity(x)).AsQueryable();
+        }
+
+        public BaseListDTO<DTOEntity> GetAllPaginate(int pageNumber, int pageSize, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
+        {
+            var entities = GetQueryable(orderBy: orderBy);
+            var pagination = entities
+            .OrderByDescending(x => x.Id)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize);
+            var countTotal = entities.Count();
+            var items = pagination
+            .ToArray()
+            .Select(s => GetDTOFromEntity(s))
+            .ToArray();
+            return new BaseListDTO<DTOEntity>(countTotal, pageNumber, pageSize, items);
         }
 
         public void SaveChanges()
         {
-            _context.SaveChanges();
+            context.SaveChanges();
         }
 
         protected abstract DTOEntity GetDTOFromEntity(TEntity entity);

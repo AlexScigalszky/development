@@ -15,5 +15,5 @@ namespace Example.Model.Repositories
         void Delete(TEntity entity);
         void SaveChanges();
         TEntity GetDTOFromEntity(TEntity entity);
-    }
+    }z
 }

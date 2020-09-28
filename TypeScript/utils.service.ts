@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { ValidatorFn, AbstractControl, Validators } from "@angular/forms";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class UtilsService {
   constructor() {}
@@ -38,10 +38,7 @@ export class UtilsService {
     ) {
       return; // let it happen, don't do anything
     }
-    if (
-      (eventOnKeyDown.shiftKey || (eventOnKeyDown.keyCode < 48 || eventOnKeyDown.keyCode > 57)) &&
-      (eventOnKeyDown.keyCode < 96 || eventOnKeyDown.keyCode > 105)
-    ) {
+    if ((eventOnKeyDown.shiftKey || eventOnKeyDown.keyCode < 48 || eventOnKeyDown.keyCode > 57) && (eventOnKeyDown.keyCode < 96 || eventOnKeyDown.keyCode > 105)) {
       eventOnKeyDown.preventDefault();
     }
   }
@@ -90,17 +87,25 @@ export class UtilsService {
   }
 
   /**
+   * Convert long string date (ofen from Rest API) to a date string
+   */
+  getOnlyDate(dateStr: string | Date): string {
+    const currentDate = new Date(dateStr);
+    return currentDate.toISOString().substring(0, 10);
+  }
+  
+  /**
    * Return only values witch match query in any of this fields inside element (logic op: OR, LIKE)
    * @param array Array of objects
    * @param fields properties of each item whats will by compared with query
    * @param query text to compare values (LIKE)
    */
   filterBy(array: any[], fields: string[], query: string): any[] {
-    return array.filter(x => {
+    return array.filter((x) => {
       let rst: boolean = false;
       for (let i = 0; i < fields.length; i++) {
         const element = fields[i].toLocaleLowerCase();
-        rst = rst || (x[element] && (x[element] + '').toLocaleLowerCase().indexOf(query) !== -1);
+        rst = rst || (x[element] && (x[element] + "").toLocaleLowerCase().indexOf(query) !== -1);
       }
       return rst;
     });
@@ -113,23 +118,32 @@ export class UtilsService {
    * @param query text to compare values (LIKE)
    */
   filterNotBy(array: any[], fields: string[], query: string): any[] {
-    return array.filter(x => {
+    return array.filter((x) => {
       let rst: boolean = false;
       for (let i = 0; i < fields.length; i++) {
         const element = fields[i].toLocaleLowerCase();
-        rst = rst || (x[element] && (x[element] + '').toLocaleLowerCase().indexOf(query) === -1);
+        rst = rst || (x[element] && (x[element] + "").toLocaleLowerCase().indexOf(query) === -1);
       }
       return rst;
     });
   }
 
-/**
+  /**
    * Return an array without duplicates
    * @param array Array of objects
    */
-  removeDuplicates(array: any[]): any[]{
-    return array.filter(function(elem, index, self) {
+  removeDuplicates(array: any[]): any[] {
+    return array.filter(function (elem, index, self) {
       return index === self.indexOf(elem);
     });
+  }
+
+  /**
+   * Return count of days are between dates
+   * @param first date
+   * @param second date
+   */
+  calculateDiffInDays(first: Date, second: Date) {
+    return Math.floor((Date.UTC(second.getFullYear(), second.getMonth(), second.getDate()) - Date.UTC(first.getFullYear(), first.getMonth(), first.getDate()) ) /(1000 * 60 * 60 * 24));
   }
 }

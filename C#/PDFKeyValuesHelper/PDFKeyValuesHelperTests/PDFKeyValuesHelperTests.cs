@@ -14,6 +14,7 @@ namespace PDFKeyValuesHelper.Tests
             var helper = new PDFKeyValuesHelper<int>(items, 2);
 
             Assert.AreEqual(1, helper.CountPages);
+            Assert.AreEqual(1, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
@@ -23,6 +24,7 @@ namespace PDFKeyValuesHelper.Tests
             var helper = new PDFKeyValuesHelper<int>(items, 2);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(2, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
@@ -32,6 +34,7 @@ namespace PDFKeyValuesHelper.Tests
             var helper = new PDFKeyValuesHelper<int>(items, 3);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(2, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
@@ -41,6 +44,7 @@ namespace PDFKeyValuesHelper.Tests
             var helper = new PDFKeyValuesHelper<int>(items, 3);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(2, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
@@ -50,6 +54,7 @@ namespace PDFKeyValuesHelper.Tests
             var helper = new PDFKeyValuesHelper<int>(items, 3);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(2, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
@@ -59,42 +64,47 @@ namespace PDFKeyValuesHelper.Tests
             var helper = new PDFKeyValuesHelper<int>(items, 3);
 
             Assert.AreEqual(3, helper.CountPages);
+            Assert.AreEqual(3, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
         public void CountPages3ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(1, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
         public void CountPages4ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3, 4 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(1, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
         public void CountPages5ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3, 4, 5 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(2, helper.CountPages);
+            Assert.AreEqual(1, helper.CountPagesWithoutLast);
         }
 
         [TestMethod()]
         public void CountPages6ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(3, helper.CountPages);
+            Assert.AreEqual(2, helper.CountPagesWithoutLast);
             // the last one is empty
         }
         #endregion
@@ -184,7 +194,7 @@ namespace PDFKeyValuesHelper.Tests
         public void GetItemsForPage3ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(3, helper.GetItemsForPage(0).Count());
             Assert.AreEqual(0, helper.GetItemsForPage(1).Count());
@@ -197,7 +207,7 @@ namespace PDFKeyValuesHelper.Tests
         public void GetItemsForPage4ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3, 4 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(3, helper.GetItemsForPage(0).Count());
             Assert.AreEqual(1, helper.GetItemsForPage(1).Count());
@@ -210,7 +220,7 @@ namespace PDFKeyValuesHelper.Tests
         public void GetItemsForPage5ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3, 4, 5 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(3, helper.GetItemsForPage(0).Count());
             Assert.AreEqual(2, helper.GetItemsForPage(1).Count());
@@ -224,7 +234,7 @@ namespace PDFKeyValuesHelper.Tests
         public void GetItemsForPage6ItemsInPageWith3And2Test()
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6 };
-            var helper = new PDFKeyValuesHelper<int>(items, 3, 2);
+            var helper = new PDFKeyValuesHelper<int>(items, 3, 2, true);
 
             Assert.AreEqual(3, helper.GetItemsForPage(0).Count());
             Assert.AreEqual(3, helper.GetItemsForPage(1).Count());

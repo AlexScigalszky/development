@@ -7,9 +7,11 @@ namespace PDFKeyValuesHelper
     {
         private IEnumerable<T> items;
         private int countPages;
+        private int countPagesWithoutLast;
         private int countItemsPagesWithoutLast;
         public int countItemsPerPage;
         public int countItemsForLastPage;
+        private bool hasCustomLastPage;
 
         public IEnumerable<T> Items
         {
@@ -26,15 +28,26 @@ namespace PDFKeyValuesHelper
             get => countPages;
         }
 
-        public PDFKeyValuesHelper(IEnumerable<T> items, int countItemsPerPage, int countItemsForLastPage)
+        public int CountPagesWithoutLast
+        {
+            get => countPagesWithoutLast;
+        }
+
+        public bool HasCustomLastPage
+        {
+            get => hasCustomLastPage;
+        }
+
+        public PDFKeyValuesHelper(IEnumerable<T> items, int countItemsPerPage, int countItemsForLastPage, bool hasCustomLastPage)
         {
             this.items = items;
             this.countItemsPerPage = countItemsPerPage;
             this.countItemsForLastPage = countItemsForLastPage;
+            this.hasCustomLastPage = hasCustomLastPage;
             Initialize();
         }
 
-        public PDFKeyValuesHelper(IEnumerable<T> items, int countItemsPerPage) : this(items, countItemsPerPage, countItemsPerPage)
+        public PDFKeyValuesHelper(IEnumerable<T> items, int countItemsPerPage) : this(items, countItemsPerPage, countItemsPerPage, false)
         {
 
         }
@@ -46,6 +59,14 @@ namespace PDFKeyValuesHelper
             if (items.Count() % countItemsPerPage > 0 || countItemsPerPage != countItemsForLastPage)
             {
                 countPages++;
+            }
+            if (hasCustomLastPage)
+            {
+                countPagesWithoutLast = countPages - 1;
+            }
+            else
+            {
+                countPagesWithoutLast = countPages;
             }
         }
 

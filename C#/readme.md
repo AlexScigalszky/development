@@ -31,3 +31,6 @@ This is a class to add filter on `OpenApi`
 
 # Base32
 This is a clase for conver objects from and to Base64 string
+
+# PDFKeyValuesHelper
+This is an interface and implementation of pagination for creation PDFs using dinamic forms in PDFs

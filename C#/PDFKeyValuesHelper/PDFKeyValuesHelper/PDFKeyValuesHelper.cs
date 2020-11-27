@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PDFKeyValuesHelper
@@ -63,6 +64,7 @@ namespace PDFKeyValuesHelper
             if (hasCustomLastPage)
             {
                 countPagesWithoutLast = countPages - 1;
+                countItemsPagesWithoutLast = countPagesWithoutLast * countItemsPerPage;
             }
             else
             {
@@ -77,6 +79,10 @@ namespace PDFKeyValuesHelper
         /// <returns></returns>
         public IEnumerable<T> GetItemsForPage(int pageNumber)
         {
+            if (items.Count() <= countItemsForLastPage)
+            {
+                return Array.Empty<T>();
+            }
             return items
                 .Skip(pageNumber * countItemsPerPage)
                 .Take(countItemsPerPage);
@@ -84,6 +90,8 @@ namespace PDFKeyValuesHelper
 
         public IEnumerable<T> GetItemsForLastPage()
         {
+            if (items.Count() <= countItemsForLastPage)
+                return items;
             return items
                 .Skip(countItemsPagesWithoutLast);
         }

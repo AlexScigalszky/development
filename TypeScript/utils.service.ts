@@ -146,4 +146,12 @@ export class UtilsService {
   calculateDiffInDays(first: Date, second: Date) {
     return Math.floor((Date.UTC(second.getFullYear(), second.getMonth(), second.getDate()) - Date.UTC(first.getFullYear(), first.getMonth(), first.getDate()) ) /(1000 * 60 * 60 * 24));
   }
+
+  /**
+   * Extract the first query params from an url
+   * @param url string
+   */
+  extractFirstQueryParam(url: string): string {
+    return url.replace(/\//g, '-').split('?')[0];
+  }
 }

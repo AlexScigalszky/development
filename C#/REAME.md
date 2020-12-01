@@ -34,3 +34,9 @@ This is a clase for conver objects from and to Base64 string
 
 # PDFKeyValuesHelper
 This is an interface and implementation of pagination for creation PDFs using dinamic forms in PDFs
+
+# RandomGenerator
+This is a class to generate a new random password with the method `NewRandomPassword` 
+
+# StringTransformer
+This is a set of method to helpme to manage strings

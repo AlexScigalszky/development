@@ -8,13 +8,17 @@ There are a interface and implementation of PDF Filler using `using iText.Forms`
 Same of PDFCreator iTextSharp .Net Framework but using this library `https://github.com/VahidN/iTextSharp.LGPLv2.Core`
 
 # Log Example
-This is an example for a simple log. I used when is requiered delete important data (by user decision) and i want save withc user make each thing. I use `AutoMapper` to manage DTOs
+This is an example for a simple log. I used when is requiered delete important data (by user decision) and i want save with user make each thing. I use `AutoMapper` to manage DTOs
+This was improved with LogService folder
 
 # Iterators
 There is a Interface of IQueryable using Entity Framework with a loading of a few items from database. I used when a need foreach a big collection and there are low memory
 
 # LambdaUtilsMethods
 A class herper for AND and OR expression dinamicly
+
+# Export
+This is a set of strategies to export data to an exclusive format
 
 # Logger
 This is a class Helper (DEPRECATED) for Log data avoiding touch each class. I recommend use the Log Example.
@@ -40,3 +44,9 @@ This is a class to generate a new random password with the method `NewRandomPass
 
 # StringTransformer
 This is a set of method to helpme to manage strings
+
+# SftpService
+This is a services to upload a file using a SFPT protocol
+
+# CsvHelper
+This is a class to create a CSV file (in Export folder there are a others helpers as CsvHelper but using a strategy patter)

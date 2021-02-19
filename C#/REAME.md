@@ -50,3 +50,6 @@ This is a services to upload a file using a SFPT protocol
 
 # CsvHelper
 This is a class to create a CSV file (in Export folder there are a others helpers as CsvHelper but using a strategy patter)
+
+# HttpHelper
+A class with some methods to help me to get data from HTTP request/responses

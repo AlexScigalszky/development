@@ -34,6 +34,9 @@ A Helper class for serialize objects in a simple way using `Newtonsoft.Json`
 This is a class to add filter on `OpenApi`
 
 # Base32
+This is a clase for conver objects from and to Base32 string
+
+# Base64
 This is a clase for conver objects from and to Base64 string
 
 # PDFKeyValuesHelper
@@ -53,3 +56,12 @@ This is a class to create a CSV file (in Export folder there are a others helper
 
 # HttpHelper
 A class with some methods to help me to get data from HTTP request/responses
+
+# HttpClient
+A class to calls endpoint as http client
+
+# ZipHelper
+Helper to make zip file with a collection of files inside it
+
+# CurrencyHelper
+A class to translate a number of currency to string text (like a Thousand). TODO: Need a Unit test

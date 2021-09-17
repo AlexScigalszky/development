@@ -65,3 +65,12 @@ Helper to make zip file with a collection of files inside it
 
 # CurrencyHelper
 A class to translate a number of currency to string text (like a Thousand). TODO: Need a Unit test
+
+# FileHelpers
+File helpers to manage files in file system
+
+# Messages
+Classes to manage RabbitMQ queues (sender and recieber)
+
+# PathWatcher
+Files to watch filesystem when files was added into specific folders

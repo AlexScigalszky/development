@@ -74,3 +74,6 @@ Classes to manage RabbitMQ queues (sender and recieber)
 
 # PathWatcher
 Files to watch filesystem when files was added into specific folders
+
+# Redis
+An Interface and implementation of RedisWrapper with a serie of method to put and get values and an alternative storage (using a parameter `Func`)

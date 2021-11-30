@@ -3,19 +3,30 @@ using Xunit;
 
 namespace Example.Tests.Utils
 {
+    public static class TestDataShare
+    {
+        public static IEnumerable<object[]> Data
+        {
+            get
+            {
+                yield return new object[] { "aàáâãäåçc", "aaaaaaacc", true },
+                yield return new object[] { "Alex", "alex", false },
+                yield return new object[] { "Nicolás", "nicolás", false },
+                yield return new object[] { "Nicolás", "nicolas", false },
+                yield return new object[] { "€", "€", true },
+                yield return new object[] { "~", "~", true },
+                yield return new object[] { "Je veux aller à Saint-Étienne", "Je veux aller a Saint-Etienne", true },
+                yield return new object[]{ "Cà phê sữa đá hay còn gọi đơn giản là cà phê sữa là một loại thức uống thông dụng ở Việt Nam.",
+                            "Ca phe sua đa hay con goi đon gian la ca phe sua la mot loai thuc uong thong dung o Viet Nam.", true },
+            }
+        }
+    }
+
     public class StringTransformerTest
     {
 
         [Theory]
-        [InlineData("aàáâãäåçc", "aaaaaaacc", true)]
-        [InlineData("Alex", "alex", false)]
-        [InlineData("Nicolás", "nicolás", false)]
-        [InlineData("Nicolás", "nicolas", false)]
-        [InlineData("€", "€", true)]
-        [InlineData("~", "~", true)]
-        [InlineData("Je veux aller à Saint-Étienne", "Je veux aller a Saint-Etienne", true)]
-        [InlineData("Cà phê sữa đá hay còn gọi đơn giản là cà phê sữa là một loại thức uống thông dụng ở Việt Nam.",
-                    "Ca phe sua đa hay con goi đon gian la ca phe sua la mot loai thuc uong thong dung o Viet Nam.", true)]
+        [MemberData(nameof(TestDataShare.Data, MemberType = typeof(TestDataShare)))]
         public void Match_With_Equal_Operator(string src, string dest, bool expected)
         {
             var result = src.RemoveDiacritics() == dest;
@@ -23,15 +34,7 @@ namespace Example.Tests.Utils
         }
 
         [Theory]
-        [InlineData("aàáâãäåçc", "aaaaaaacc", true)]
-        [InlineData("Alex", "alex", false)]
-        [InlineData("Nicolás", "nicolás", false)]
-        [InlineData("Nicolás", "nicolas", false)]
-        [InlineData("€", "€", true)]
-        [InlineData("~", "~", true)]
-        [InlineData("Je veux aller à Saint-Étienne", "Je veux aller a Saint-Etienne", true)]
-        [InlineData("Cà phê sữa đá hay còn gọi đơn giản là cà phê sữa là một loại thức uống thông dụng ở Việt Nam.",
-                    "Ca phe sua đa hay con goi đon gian la ca phe sua la mot loai thuc uong thong dung o Viet Nam.", true)]
+        [MemberData(nameof(TestDataShare.Data, MemberType = typeof(TestDataShare)))]
         public void Match_With_Equals_Method(string src, string dest, bool expected)
         {
             var result = src.RemoveDiacritics().Equals(dest);

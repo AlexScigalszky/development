@@ -77,3 +77,10 @@ Files to watch filesystem when files was added into specific folders
 
 # Redis
 An Interface and implementation of RedisWrapper with a serie of method to put and get values and an alternative storage (using a parameter `Func`)
+
+# Html
+A serie of helper classes for manipulate html
+https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0
+
+# DotNetWebApplicationFactoryTest
+WebApplicationFactory to us in .Net Core 6

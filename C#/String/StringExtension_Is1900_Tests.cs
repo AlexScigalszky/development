@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Trafer.Core.Utils.Tests
+namespace Example.Utils.Tests
 {
     public class StringExtension_Is1900_Tests
     {

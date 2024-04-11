@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace CBV_SB_Shared.FileHelpers
+namespace Example.FileHelpers
 {
     public class FileHelpers: IFileHelpers
     {

@@ -1,4 +1,4 @@
-﻿namespace CBV_SB_Shared.Messages
+﻿namespace Example.Messages
 {
     public interface IRabbitMQSender
     {

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CBV_SB_Shared.Messages
+namespace Example.Messages
 {
     public class RabbitMQSender : IRabbitMQSender
     {

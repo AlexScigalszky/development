@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CBV_SB_Shared.FileHelpers
+namespace Example.FileHelpers
 {
     public interface IFileHelpers
     {

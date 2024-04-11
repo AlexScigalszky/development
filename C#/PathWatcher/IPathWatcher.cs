@@ -1,12 +1,12 @@
-﻿using CBV_SB_Shared.FileHelpers;
-using CBV_SB_Shared.PathWatcher.PathWatcher;
+﻿using Example.FileHelpers;
+using Example.PathWatcher.PathWatcher;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CBV_SB_Shared.PathWatcher
+namespace Example.PathWatcher
 {
     public abstract class IPathWatcher
     {

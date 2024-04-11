@@ -1,4 +1,4 @@
-﻿using CBV_SB_Shared.FileHelpers;
+﻿using Example.FileHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CBV_SB_Shared.PathWatcher.PoolingFilesWatcher
+namespace Example.PathWatcher.PoolingFilesWatcher
 {
     public class PoolingFilesWatcher : IPathWatcher
     {

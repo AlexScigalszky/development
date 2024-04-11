@@ -1,11 +1,11 @@
-﻿using CBV_SB_Shared.Redis;
+﻿using Example.Redis;
 using Moq;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace CBV_SB_SharedTests.Redis
+namespace ExampleTests.Redis
 {
     public interface IFoo
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CBV_SB_Shared.Redis
+namespace Example.Redis
 {
     public interface IRedisWrapper
     {

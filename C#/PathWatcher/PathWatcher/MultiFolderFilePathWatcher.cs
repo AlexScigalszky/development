@@ -1,4 +1,4 @@
-﻿using CBV_SB_Shared.FileHelpers;
+﻿using Example.FileHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CBV_SB_Shared.PathWatcher.PathWatcher
+namespace Example.PathWatcher.PathWatcher
 {
     public class MultiFolderFilePathWatcher : IPathWatcher
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace CBV_SB_Shared.Messages
+namespace Example.Messages
 {
     public interface IRabbitMQReciber
     {

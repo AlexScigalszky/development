@@ -9,7 +9,7 @@
       "name": "Swagger API Team (a new name)"
     },
     "license": {
-      "name": "MIT"
+      "name": "MIT (modified)"
     }
   },
   "host": "petstore.swagger.io",
